@@ -1,4 +1,3 @@
-```yaml
 name: Reusable Node.js Build & Deploy
 
 on:
@@ -52,4 +51,3 @@ jobs:
         if: success()
         run: |
           echo "Deployment completed successfully"
-```
