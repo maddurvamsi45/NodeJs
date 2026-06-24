@@ -3,13 +3,7 @@ name:  NodeJs
 on:
   push:
      branch: master
-
-permissions:
-   security-events: write
-   issues: write
-   actions: read
-   contents: read
-
+ 
 jobs:
   Build-Test:
     runs-on:  ubuntu-latest
@@ -23,15 +17,15 @@ jobs:
           node-version: '24'
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: javascript
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+        uses: github/codeql-action/autobuild@v4
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
 
       - name: Build
         run: npm install
@@ -48,3 +42,4 @@ jobs:
 
       - name: Deploy
         run: echo "code is deployed"
+
